@@ -8,16 +8,18 @@ dotenv.load_dotenv()
 # Initialize client
 client = Mistral(api_key=os.getenv("MISTRAL_API_KEY"))
 
-# Make the API call
-response = client.chat.complete(
-    model="mistral-large-latest",
-    messages=[
-        {
-            "role": "user",
-            "content": "What is the capital of France?"
-        }
-    ]
-)
+res = client.models.list()
+print(res)
 
-# Print the response
-print(response.choices[0].message.content)
+
+# response = client.chat.complete(
+#     model="mistral-large-latest",
+#     messages=[
+#         {
+#             "role": "user",
+#             "content": "What is the capital of France?"
+#         }
+#     ]
+# )
+
+# print(response.choices[0].message.content)
